@@ -14,6 +14,6 @@ git add -A
 git commit -m 'deploy'
 
 # 如果发布到 https://<USERNAME>.github.io/<REPO>
-git push -f git@github.com:wentian-1/boke.git master:gh-pages
+git push -f https://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@github.com/wentian-1/boke.git main:gh-pages
 
 cd -

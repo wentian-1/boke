@@ -2,7 +2,7 @@ module.exports = {
 	title: 'TypeScript4 文档',
 	description: 'TypeScript4 最新官方文档翻译',
 	theme: 'reco',
-	base: '/boke/'
+	base: '/boke/',
 	themeConfig: {
 		subSidebar: 'auto',
 		nav: [{
@@ -36,20 +36,18 @@ module.exports = {
 				path: '/problem/WorkProblems',
 				collapsable: false, // 不折叠
 				children: [{
-						title: "工作问题",
-						path: "/problem/WorkProblems"
-					},
-				],
+					title: "工作问题",
+					path: "/problem/WorkProblems"
+				}, ],
 			},
 			{
 				title: "学习技能",
 				path: '/study/CreateCli',
 				collapsable: false, // 不折叠
 				children: [{
-						title: "搭建cli",
-						path: "/study/CreateCli"
-					},
-				],
+					title: "搭建cli",
+					path: "/study/CreateCli"
+				}, ],
 			}
 		]
 	}

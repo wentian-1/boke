@@ -1,0 +1,22 @@
+{
+  "0 debug pnpm:scope": {
+    "selected": 1
+  },
+  "1 error pnpm": {
+    "code": "ELIFECYCLE",
+    "errno": "ENOENT",
+    "syscall": "spawn",
+    "file": "sh",
+    "pkgid": "vuepress-starter@1.0.0",
+    "stage": "docs:build",
+    "script": "vuepress build docs",
+    "pkgname": "vuepress-starter",
+    "err": {
+      "name": "pnpm",
+      "message": "vuepress-starter@1.0.0 docs:build: `vuepress build docs`\nspawn ENOENT",
+      "code": "ELIFECYCLE",
+      "stack": "pnpm: vuepress-starter@1.0.0 docs:build: `vuepress build docs`\nspawn ENOENT\n    at ChildProcess.<anonymous> (/Users/yuanfacang/.nvm/versions/node/v14.19.3/lib/node_modules/pnpm/dist/pnpm.cjs:93511:22)\n    at ChildProcess.emit (events.js:400:28)\n    at maybeClose (internal/child_process.js:1088:16)\n    at Process.ChildProcess._handle.onexit (internal/child_process.js:296:5)"
+    }
+  },
+  "2 warn pnpm:global": " Local package.json exists, but node_modules missing, did you mean to install?"
+}

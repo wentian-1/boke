@@ -1,6 +1,6 @@
 module.exports = {
-	title: 'TypeScript4 文档',
-	description: 'TypeScript4 最新官方文档翻译',
+	title: '工作学习记录',
+	description: '工作学习记录',
 	theme: 'reco',
 	base: '/boke/',
 	themeConfig: {
@@ -11,11 +11,15 @@ module.exports = {
 			},
 			{
 				text: '闻天的博客',
-				items: [{
-						text: 'Github',
-						link: 'https://github.com/mqyqingfeng'
-					},
+				items: [
+					// {
+					// 	text: 'Github',
+					// 	link: 'https://github.com/wentian-1'
+					// },
 					{
+						text: '码云',
+						link: 'https://gitee.com/y-f-c'
+					}, {
 						text: '掘金',
 						link: 'https://juejin.cn/user/1802854801608109/posts'
 					}
@@ -33,12 +37,16 @@ module.exports = {
 			},
 			{
 				title: "问题记录",
-				path: '/problem/WorkProblems',
+				path: '/problem/Pc',
 				collapsable: false, // 不折叠
 				children: [{
-						title: "工作问题",
-						path: "/problem/WorkProblems"
+						title: "pc端",
+						path: "/problem/Pc"
 					},
+					{
+						title: "移动端",
+						path: "/problem/Mobile"
+					}
 				],
 			},
 			{
@@ -48,9 +56,29 @@ module.exports = {
 				children: [{
 						title: "搭建cli",
 						path: "/study/CreateCli"
+					}, {
+						title: "koa管理系统",
+						path: "/study/KoaSystem"
 					},
+					{
+						title: "Sequelize的使用",
+						path: "/study/Sequelize"
+					}
 				],
+			},
+			{
+				title: "算法与数据结构",
+				path: '/algorithms/LinearSearch',
+				collapsable: false, // 不折叠
+				children: [{
+					title: "线性算法",
+					path: "/algorithms/LinearSearch"
+				}, ],
 			}
 		]
+	},
+	markdown: {
+		lineNumbers: true,
+		anchor: true
 	}
 }

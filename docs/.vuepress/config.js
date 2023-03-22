@@ -75,7 +75,7 @@ module.exports = {
 					path: "/algorithms/LinearSearch"
 				}, ],
 			}
-		]
+		],
 	},
 	markdown: {
 		lineNumbers: true,

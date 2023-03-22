@@ -1,11 +1,23 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@vuepress-reco/vuepress-plugin-bgm-player': ^1.1.4
+  '@vuepress-reco/vuepress-plugin-extract-code': ^1.0.4
+  '@vuepress-reco/vuepress-plugin-kan-ban-niang': ^1.0.5
   vuepress: ^1.9.7
+  vuepress-plugin-cursor-effects: ^1.1.6
+  vuepress-plugin-dynamic-title: ^1.0.0
+  vuepress-plugin-go-top: ^1.0.4
   vuepress-theme-reco: ^1.6.16
 
 devDependencies:
+  '@vuepress-reco/vuepress-plugin-bgm-player': 1.1.4
+  '@vuepress-reco/vuepress-plugin-extract-code': 1.0.4
+  '@vuepress-reco/vuepress-plugin-kan-ban-niang': 1.0.5
   vuepress: 1.9.7
+  vuepress-plugin-cursor-effects: 1.1.6
+  vuepress-plugin-dynamic-title: 1.0.0
+  vuepress-plugin-go-top: 1.0.4
   vuepress-theme-reco: 1.6.16_vuepress@1.9.7
 
 packages:
@@ -1301,6 +1313,24 @@ packages:
       miniprogram-api-typings: 2.12.0
     dev: true
 
+  /@moefy-canvas/core/0.5.2:
+    resolution: {integrity: sha512-XkaVE91Tiwb35zFmI1DbrJpMh0xe54QbzQrc7ATwMos4C08dxBnwExwXEVS7oEct7owVDY1UWxtRRVE7smtzHw==}
+    dev: true
+
+  /@moefy-canvas/theme-popper/0.5.2:
+    resolution: {integrity: sha512-s6Gy27DKTLm2un5Od3fsAonnd7lN4pgyLXJ/omXisAZpVLbPg/Q5/QKpJLZvQ/08qNrn6X/GZjnWwvsHbJTBNw==}
+    dependencies:
+      '@moefy-canvas/core': 0.5.2
+      '@moefy-canvas/utils': 0.5.2
+      ts-debounce: 4.0.0
+    dev: true
+
+  /@moefy-canvas/utils/0.5.2:
+    resolution: {integrity: sha512-DnI8I/cTBFfn3xoXwyyLEtye4pMI6zJFMxU1qps731xgYTWmzBqJPkZZd/2gfNnH5NnLUOGG7Ui3sMkmJ0vg0w==}
+    dependencies:
+      '@moefy-canvas/core': 0.5.2
+    dev: true
+
   /@mrmlnc/readdir-enhanced/2.2.1:
     resolution: {integrity: sha512-bPHp6Ji8b41szTOcaP63VlnbbO5Ny6dwAATtY6JTjh5N2OLrb5Qk/Th5cRkRQhkWCt+EJsYrNB0MiL+Gpn6e3g==}
     engines: {node: '>=4'}
@@ -1453,7 +1483,7 @@ packages:
     dev: true
 
   /@types/superagent/4.1.15:
-    resolution: {integrity: sha512-iiXaOL2wSbnSY4qg0mFPWJHL9iwyEsoNYwaHF2w58/fsVAQJlj+KUfFAFZu+nzbz+b7dUprJEAc+O9vhHHhQTA==, tarball: '@types/superagent/-/superagent-4.1.14.tgz'}
+    resolution: {integrity: sha512-iiXaOL2wSbnSY4qg0mFPWJHL9iwyEsoNYwaHF2w58/fsVAQJlj+KUfFAFZu+nzbz+b7dUprJEAc+O9vhHHhQTA==, tarball: '@types/superagent/-/superagent-4.1.15.tgz'}
     deprecated: '[WARNING] Use 4.1.14 instead of 4.1.15, reason: https://github.com/DefinitelyTyped/DefinitelyTyped/issues/58445'
     dependencies:
       '@types/cookiejar': 2.1.2
@@ -1810,6 +1840,10 @@ packages:
     resolution: {integrity: sha512-4KPllVU1ruD4SANuZ0wNQJwpcSctKJmWD4XhdAXOuoNc2kRzM4ic/xnWZ9YJuTlae94w4ocnmm3bZafWuewqRw==}
     dev: true
 
+  /@vuepress-reco/vuepress-plugin-bgm-player/1.1.4:
+    resolution: {integrity: sha512-DPSTwyAKmgBu6607D7PzM0ZlW5g5TuMZPEGmSKS50AIvSTFL5AO0J33NQFT63jqVKJhKmjZ0kDB8dtegPYaNlg==}
+    dev: true
+
   /@vuepress-reco/vuepress-plugin-comments/1.6.13:
     resolution: {integrity: sha512-KunbkxcMxYxelpVyN3FBcnVPXPifqlpctQHUllZk4As9q/PJALCvuJWZ0MWsM5CIdrUL9DBrGmSUW4amfOiUAw==}
     dependencies:
@@ -1825,6 +1859,14 @@ packages:
       - debug
       - supports-color
       - utf-8-validate
+    dev: true
+
+  /@vuepress-reco/vuepress-plugin-extract-code/1.0.4:
+    resolution: {integrity: sha512-J4Cas3JRxs0TnfjtzQ+3bl7iNwL/va9cOXMtpayse3sETul863BwYk1vEBXRAZMiLmbmWqnBrGIrJGmD/TnO5Q==}
+    dev: true
+
+  /@vuepress-reco/vuepress-plugin-kan-ban-niang/1.0.5:
+    resolution: {integrity: sha512-ufqpOw0zhLxv3PvoYlHTsjmG4CFiCaQ8dnf950Ov7JmajKgpAMarZ3ObB+xi5ex0sgetxU82YSf+CptQceXQIw==}
     dev: true
 
   /@vuepress-reco/vuepress-plugin-pagation/1.6.13:
@@ -1866,7 +1908,7 @@ packages:
       url-loader: 1.1.2_webpack@4.46.0
       vue: 2.7.14
       vue-loader: 15.10.1_lbhzzmlqoxkdndxnphn2sqq4kq
-      vue-router: 3.6.5
+      vue-router: 3.6.5_vue@2.7.14
       vue-server-renderer: 2.7.14
       vue-template-compiler: 2.7.14
       vuepress-html-webpack-plugin: 3.2.0_webpack@4.46.0
@@ -3383,7 +3425,7 @@ packages:
       lodash: ^4.17.20
       marko: ^3.14.4
       mote: ^0.2.0
-      mustache: ^4.0.1
+      mustache: ^3.0.0
       nunjucks: ^3.2.2
       plates: ~0.4.11
       pug: ^3.0.0
@@ -9108,6 +9150,10 @@ packages:
       punycode: 2.1.1
     dev: true
 
+  /ts-debounce/4.0.0:
+    resolution: {integrity: sha512-+1iDGY6NmOGidq7i7xZGA4cm8DAa6fqdYcvO5Z6yBevH++Bdo9Qt/mN0TzHUgcCcKv1gmh9+W5dHqz8pMWbCbg==}
+    dev: true
+
   /tty-browserify/0.0.0:
     resolution: {integrity: sha512-JVa5ijo+j/sOoHGjw0sxw734b1LhBkQ3bvUGNdxnVXDCX81Yx7TFgnZygxrIIWn23hbfTaMYLwRmAxFyDuFmIw==}
     dev: true
@@ -9447,7 +9493,7 @@ packages:
       '@vssue/utils': 1.4.7
       github-markdown-css: 3.0.1
       vue: 2.7.14
-      vue-i18n: 8.28.2
+      vue-i18n: 8.28.2_vue@2.7.14
       vue-property-decorator: 8.5.1_vue@2.7.14
     dev: true
 
@@ -9471,8 +9517,12 @@ packages:
     resolution: {integrity: sha512-BXq3jwIagosjgNVae6tkHzzIk6a8MHFtzAdwhnV5VlvPTFxDCvIttgSiHWjdGoTJvXtmRu5HacExfdarRcFhog==}
     dev: true
 
-  /vue-i18n/8.28.2:
+  /vue-i18n/8.28.2_vue@2.7.14:
     resolution: {integrity: sha512-C5GZjs1tYlAqjwymaaCPDjCyGo10ajUphiwA922jKt9n7KPpqR7oM1PCwYzhB/E7+nT3wfdG3oRre5raIT1rKA==}
+    peerDependencies:
+      vue: ^2
+    dependencies:
+      vue: 2.7.14
     dev: true
 
   /vue-loader/15.10.1_lbhzzmlqoxkdndxnphn2sqq4kq:
@@ -9574,8 +9624,12 @@ packages:
       vue: 2.7.14
     dev: true
 
-  /vue-router/3.6.5:
+  /vue-router/3.6.5_vue@2.7.14:
     resolution: {integrity: sha512-VYXZQLtjuvKxxcshuRAwjHnciqZVoXAjTjcqBTz4rKc8qih9g9pI3hbDjmqXaHdgL3v8pV6P8Z335XvHzESxLQ==}
+    peerDependencies:
+      vue: ^2
+    dependencies:
+      vue: 2.7.14
     dev: true
 
   /vue-server-renderer/2.7.14:
@@ -9645,10 +9699,20 @@ packages:
       - supports-color
     dev: true
 
+  /vuepress-plugin-cursor-effects/1.1.6:
+    resolution: {integrity: sha512-4qXL2flMQcd6ecp+LhdChspobhdb9fkAfmRjRs2K3a/DiwtQtOE24jaVFCClwhfDpYuRe48a0KVeROYkdiWuXg==}
+    dependencies:
+      '@moefy-canvas/theme-popper': 0.5.2
+    dev: true
+
   /vuepress-plugin-disqus/0.2.0:
     resolution: {integrity: sha512-kx+AeVzjJ9lx9bufLt1/X35V1VXfnQ1srkDMIzFKD9NyQ3eycsWQRcGO1dFe1HMrY3+7fTu+1/JeUEUEpGZ5tw==}
     dependencies:
       vue-disqus: 3.0.5
+    dev: true
+
+  /vuepress-plugin-dynamic-title/1.0.0:
+    resolution: {integrity: sha512-CN1wtkPNG3shGzEFgqOa2dzojSle7SeAaf+Cw77Xmkv8jvB3wO5r2zXkIHTjiclQY1c5q5lE8h2A9vQaLdor2Q==}
     dev: true
 
   /vuepress-plugin-feed/0.1.9_vuepress@1.9.7:
@@ -9665,6 +9729,10 @@ packages:
       remove-markdown: 0.3.0
       striptags: 3.1.1
       vuepress: 1.9.7
+    dev: true
+
+  /vuepress-plugin-go-top/1.0.4:
+    resolution: {integrity: sha512-VxYrZmvC9agXVOEzy1G7mJj23p17O7CVmcXhlaFtQ+J827OcIqNC1X646/gOI8Hfn8or17+J+8/Bg0ZSRyizEA==}
     dev: true
 
   /vuepress-plugin-mailchimp/1.4.2:

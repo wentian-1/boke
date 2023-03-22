@@ -1,6 +1,6 @@
 module.exports = {
-	title: '工作学习记录',
-	description: '工作学习记录',
+	title: '',
+	description: '',
 	theme: 'reco',
 	base: '/boke/',
 	themeConfig: {
@@ -80,5 +80,64 @@ module.exports = {
 	markdown: {
 		lineNumbers: true,
 		anchor: true
-	}
+	},
+	plugins: [
+		[
+			'@vuepress-reco/vuepress-plugin-bgm-player',
+			{
+				audios: [
+					// 网络文件示例
+					{
+						name: '강남역 4번 출구',
+						artist: 'Plastic / Fallin` Dild',
+						url: 'https://assets.smallsunnyfox.com/music/2.mp3',
+						cover: 'https://assets.smallsunnyfox.com/music/2.jpg'
+					},
+					{
+						name: '用胳膊当枕头',
+						artist: '최낙타',
+						url: 'https://assets.smallsunnyfox.com/music/3.mp3',
+						cover: 'https://assets.smallsunnyfox.com/music/3.jpg'
+					}
+				],
+				// 是否默认缩小
+				autoShrink: true,
+				// 缩小时缩为哪种模式
+				shrinkMode: 'mini',
+				// 悬浮窗样式
+				floatStyle: {
+					bottom: '200px',
+					'z-index': '999999'
+				}
+			}
+		],
+		[
+			'@vuepress-reco/vuepress-plugin-kan-ban-niang',
+			{
+				theme: ['haru1', 'haru2', 'haruto', 'koharu', 'izumi', 'shizuku', 'miku', 'z16'],
+				messages: {
+					home: '~~~~',
+					theme: '好吧，希望你能喜欢我的其他小伙伴。',
+					close: '~~~'
+				}
+			}
+		],
+		['cursor-effects', {
+			size: 2, // size of the particle, default: 2
+			shape: ['star' | 'circle'], // ['star' | 'circle'], // shape of the particle, default: 'star'
+			zIndex: 999999999, // z-index property of the canvas, default: 999999999
+		}],
+		[
+			'dynamic-title',
+			{
+				showIcon: '/favicon.ico',
+				showText: '(づ｡◕‿‿◕｡)づ咦！亲一个！😘',
+				hideIcon: '/failure.ico',
+				hideText: ' ヽ(。>д<)ｐ不要走！🤥',
+				recoverTime: 2000,
+			},
+		],
+		'@vuepress-reco/extract-code',
+		'go-top'
+	]
 }

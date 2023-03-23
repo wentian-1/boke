@@ -4,6 +4,17 @@ module.exports = {
 	theme: 'reco',
 	base: '/boke/',
 	themeConfig: {
+		// valineConfig: {
+		// 	appId: 'ETy9szzhI94n6LyxxxazrtAp-gzGzoHsz', // your appId
+		// 	appKey: 'z60zZnDGACWnkKKy7VxWdzqW', // your appKey
+		// },
+		vssueConfig: {
+			platform: 'github',
+			owner: 'OWNER_OF_REPO',
+			repo: 'NAME_OF_REPO',
+			clientId: 'b4c6a99a22673a4f6212',
+			clientSecret: '098ea67f479e1e784d29799444072fcb8c1076b4',
+		},
 		subSidebar: 'auto',
 		nav: [{
 				text: '首页',

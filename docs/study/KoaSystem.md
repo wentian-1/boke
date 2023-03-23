@@ -1,4 +1,17 @@
-# 从0到1搭建一个koa 管理系统
+---
+title: 【Koa】从0到1搭建一个Koa 管理系统
+date: 2023-03-20
+sidebar: 'auto'
+categories:
+ - 服务端
+tags:
+ - Koa
+ - MySQL
+ - Redis
+ - Sequelize
+ - Jwt
+publish: true
+---
 ## 前言
 ::: tip
 使用Node结合Koa MySQL Redis Sequelize Jwt验证的管理系统；

@@ -1,8 +1,7 @@
-<RecoDemo :collapse="true">
-<template slot="code-js">
-<pre>
-const a = 1
-a.b = 1
-</pre>
-</template>
-</RecoDemo>
+---
+home: true
+heroImage: /hero.png
+heroText: 闻天
+tagline: 天行健，君子以自强不息！地势坤，君子以厚德载物！
+pageClass: index-page-class
+---

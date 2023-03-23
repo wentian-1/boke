@@ -1,106 +1,55 @@
 module.exports = {
-	title: '',
+	title: '闻天',
 	description: '',
 	theme: 'reco',
 	base: '/boke/',
 	head: [
 		['meta', {
-			name: 'baidu-site-verification',
-			content: 'codeva-cG42ilFkN7'
-		}]
+				name: 'baidu-site-verification',
+				content: 'codeva-cG42ilFkN7'
+			},
+			['meta', {
+				name: 'viewport',
+				content: 'width=device-width,initial-scale=1,user-scalable=no'
+			}]
+		]
 	],
 	themeConfig: {
+		lastUpdated: '上次更新',
+		smoothScroll: false,
+		logo: '/hero.png',
+		type: 'blog',
+		author: '闻天',
 		valineConfig: {
 			appId: 'ETy9szzhI94n6LyxxxazrtAp-gzGzoHsz', // your appId
 			appKey: 'z60zZnDGACWnkKKy7VxWdzqW', // your appKey
 		},
-		// vssueConfig: {
-		// 	platform: 'github',
-		// 	owner: 'OWNER_OF_REPO',
-		// 	repo: 'NAME_OF_REPO',
-		// 	clientId: 'b4c6a99a22673a4f6212',
-		// 	clientSecret: '098ea67f479e1e784d29799444072fcb8c1076b4',
-		// },
-
-		// vssueConfig: {
-		// 	platform: 'gitee',
-		// 	owner: 'OWNER_OF_REPO',
-		// 	repo: 'NAME_OF_REPO',
-		// 	clientId: 'e59eba97cce508f30325e370bf3d07a2dad3a680431ecd358ce0170a24ec82e8',
-		// 	clientSecret: '3e6ada08bd7a08771443ea18b0447979285567fcfd9eb05dffe8dbdc48f18cf6',
-		// },
+		blogConfig: {
+			category: {
+				location: 1, // 在导航栏菜单中所占的位置，默认2
+				text: '分类' // 默认文案 “分类”
+			},
+			tag: {
+				location: 2, // 在导航栏菜单中所占的位置，默认3
+				text: '文章' // 默认文案 “标签”
+			},
+		},
 		subSidebar: 'auto',
 		nav: [{
-				text: '首页',
-				link: '/'
-			},
-			{
-				text: '闻天的博客',
-				items: [
-					// {
-					// 	text: 'Github',
-					// 	link: 'https://github.com/wentian-1'
-					// },
-					{
-						text: '码云',
-						link: 'https://gitee.com/y-f-c'
-					}, {
-						text: '掘金',
-						link: 'https://juejin.cn/user/1802854801608109/posts'
-					}
-				]
-			}
-		],
-		sidebar: [{
-				title: '欢迎学习',
-				path: '/',
-				collapsable: false, // 不折叠
-				children: [{
-					title: "学前必读",
-					path: "/"
-				}]
-			},
-			{
-				title: "问题记录",
-				path: '/problem/Pc',
-				collapsable: false, // 不折叠
-				children: [{
-						title: "pc端",
-						path: "/problem/Pc"
-					},
-					{
-						title: "移动端",
-						path: "/problem/Mobile"
-					}
-				],
-			},
-			{
-				title: "学习技能",
-				path: '/study/CreateCli',
-				collapsable: false, // 不折叠
-				children: [{
-						title: "搭建cli",
-						path: "/study/CreateCli"
-					}, {
-						title: "koa管理系统",
-						path: "/study/KoaSystem"
-					},
-					{
-						title: "Sequelize的使用",
-						path: "/study/Sequelize"
-					}
-				],
-			},
-			{
-				title: "算法与数据结构",
-				path: '/algorithms/LinearSearch',
-				collapsable: false, // 不折叠
-				children: [{
-					title: "线性算法",
-					path: "/algorithms/LinearSearch"
-				}, ],
-			}
-		],
+			text: '闻天的博客',
+			items: [{
+					text: 'Github',
+					link: 'https://github.com/wentian-1'
+				},
+				{
+					text: '码云',
+					link: 'https://gitee.com/y-f-c'
+				}, {
+					text: '掘金',
+					link: 'https://juejin.cn/user/1802854801608109/posts'
+				}
+			]
+		}],
 	},
 	markdown: {
 		lineNumbers: true,

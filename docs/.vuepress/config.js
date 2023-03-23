@@ -8,12 +8,20 @@ module.exports = {
 		// 	appId: 'ETy9szzhI94n6LyxxxazrtAp-gzGzoHsz', // your appId
 		// 	appKey: 'z60zZnDGACWnkKKy7VxWdzqW', // your appKey
 		// },
+		// vssueConfig: {
+		// 	platform: 'github',
+		// 	owner: 'OWNER_OF_REPO',
+		// 	repo: 'NAME_OF_REPO',
+		// 	clientId: 'b4c6a99a22673a4f6212',
+		// 	clientSecret: '098ea67f479e1e784d29799444072fcb8c1076b4',
+		// },
+		
 		vssueConfig: {
-			platform: 'github',
+			platform: 'gitee',
 			owner: 'OWNER_OF_REPO',
 			repo: 'NAME_OF_REPO',
-			clientId: 'b4c6a99a22673a4f6212',
-			clientSecret: '098ea67f479e1e784d29799444072fcb8c1076b4',
+			clientId: 'e59eba97cce508f30325e370bf3d07a2dad3a680431ecd358ce0170a24ec82e8',
+			clientSecret: '3e6ada08bd7a08771443ea18b0447979285567fcfd9eb05dffe8dbdc48f18cf6',
 		},
 		subSidebar: 'auto',
 		nav: [{
@@ -149,6 +157,11 @@ module.exports = {
 			},
 		],
 		'@vuepress-reco/extract-code',
-		'go-top'
+		'go-top',
+		[ 
+			{
+				hostname: 'https://ts.yayujs.com'
+			}
+		],
 	]
 }

@@ -21,5 +21,8 @@
 		"vuepress-plugin-dynamic-title": "^1.0.0",
 		"vuepress-plugin-go-top": "^1.0.4",
 		"vuepress-theme-reco": "^1.6.16"
+	},
+	"dependencies": {
+		"vuepress-plugin-sitemap": "^2.3.1"
 	}
 }

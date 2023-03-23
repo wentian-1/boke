@@ -921,7 +921,7 @@ app.on('error', (err, ctx) => {
 });
 module.exports = app;
 ```
-::: warnig
+::: warning
 + 注意错误处理的中间价要在token验证之前，因为需要抛出错误被统一的错误处理拦截掉
 + 注意koa-bodyparser的安装，需要解析请求体中的数据
 :::

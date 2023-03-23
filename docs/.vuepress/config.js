@@ -3,6 +3,12 @@ module.exports = {
 	description: '',
 	theme: 'reco',
 	base: '/boke/',
+	head: [
+		['meta', {
+			name: 'baidu-site-verification',
+			content: 'codeva-cG42ilFkN7'
+		}]
+	],
 	themeConfig: {
 		valineConfig: {
 			appId: 'ETy9szzhI94n6LyxxxazrtAp-gzGzoHsz', // your appId

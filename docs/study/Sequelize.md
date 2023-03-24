@@ -1,4 +1,13 @@
-# Sequelize的简单使用
+---
+title: Sequelize的简单使用
+date: 2023-03-20
+sidebar: 'auto'
+categories:
+ - 服务端
+tags:
+ - Sequelize
+publish: true
+---
 [Sequelize官网](https://www.sequelize.cn/)
 Sequelize 是一个基于 promise 的 Node.js ORM, 它具有强大的事务支持, 关联关系, 预读和延迟加载,读取复制等功能。
 Sequelize 遵从语义版本控制。 支持 Node v10 及更高版本以便使用 ES6 功能。

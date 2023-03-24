@@ -1,4 +1,17 @@
-# 从0到1搭建一个koa 管理系统
+---
+title: 【Koa】从0到1搭建一个Koa 管理系统
+date: 2023-03-20
+sidebar: 'auto'
+categories:
+ - 服务端
+tags:
+ - Koa
+ - MySQL
+ - Redis
+ - Sequelize
+ - Jwt
+publish: true
+---
 ## 前言
 ::: tip
 使用Node结合Koa MySQL Redis Sequelize Jwt验证的管理系统；
@@ -921,7 +934,7 @@ app.on('error', (err, ctx) => {
 });
 module.exports = app;
 ```
-::: warnig
+::: warning
 + 注意错误处理的中间价要在token验证之前，因为需要抛出错误被统一的错误处理拦截掉
 + 注意koa-bodyparser的安装，需要解析请求体中的数据
 :::

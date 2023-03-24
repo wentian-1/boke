@@ -1,5 +1,5 @@
 ---
-title: 【Koa】Sequelize的简单使用
+title: Sequelize的简单使用
 date: 2023-03-20
 sidebar: 'auto'
 categories:

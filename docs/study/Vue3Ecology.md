@@ -226,48 +226,7 @@ export default {
 ### ref reactive
 ref是将传入的值变为响应式的对象，通过.value获取值，但在模板中不需要
 ```js
-<template>
-  <p>姓名: {{ name }}</p>
-  <p>年龄: {{ age }}</p>
-  <div>
-    <h3>工作信息</h3>
-    <p>职业:{{ job.post }}</p>
-    <p>薪资:{{ job.salary }}</p>
-  </div>
-  <p>数组:{{ JSON.stringify(arr) }}</p>
-  <button @click="raiseSalary">涨薪</button>
-</template>
-<script>
-import { reactive } from "vue";
-import { ref } from "vue";
-export default {
-  setup() {
-    let name = ref("yfc");
-    let age = ref(27);
-    // let job = ref({
-    //   post: "前端开发",
-    //   salary: 10,
-    // });
-		let job = reactive({
-		  post: "前端开发",
-		  salary: 10,
-		});
-    let arr = ref([0, 1, 2, 3]);
-    const raiseSalary = () => {
-      job.salary += 10;
-      age.value += 1;
-      arr.value[2] = 4;
-    };
-    return {
-      name,
-      age,
-      job,
-      raiseSalary,
-      arr
-    };
-  },
-};
-</script>
+
 ```
 ```js
 <template>
@@ -465,76 +424,303 @@ const stop = watchEffect(() => {
 ```
 watch继承watchEffect，所以wacth支持的参数watchEffect同样支持。默认开启了immediate。<br>
 用到谁就监听谁，监听到点，比如上面没用到job里面的属性值，上文中改变工龄和薪资则不会触发。
-## 生命周期
+### 生命周期
 由于vue3使用了组合式Api，也主持配置项形式的写法，所以有两种方式，组合式和配置式
 ```js
 <template>
-	<button @click="sum++">{{sum}}</button>
+  <button @click="sum++">{{ sum }}</button>
 </template>
 
 <script>
 import {
-		onMounted,
-		onBeforeMount,
-		onBeforeUpdate,
-		onUpdated,
-		onBeforeUnmount,
-		onUnmounted,
-		onActivated,
-		onDeactivated,
-		onServerPrefetch,
-		ref
-	} from 'vue';
-	export default {
-		setup() {
-			const sum = ref(0)
-			onBeforeMount(() => console.log('onBeforeMount'));
-			onMounted(() => console.log('onMounted'));
-			onBeforeUpdate(() => console.log('onBeforeUpdate'));
-			onUpdated(() => console.log('onUpdated'));
-			onBeforeUnmount(() => console.log('onBeforeUnmount'));
-			onUnmounted(() => console.log('onUnmounted'));
-			onActivated(() => console.log('onActivated'));
-			onDeactivated(() => console.log('onDeactivated'));
-			onServerPrefetch(() => console.log('onServerPrefetch'));
-			console.log('setup');
-			return {
-				sum
-			}
-		},
-		beforeCreate() {
-			console.log('beforeCreate');
-		},
-		created() {
-			console.log('created');
-		},
-		beforeMount() {
-			console.log('beforeMount');
-		},
-		mounted() {
-			console.log('mounted');
-		},
-		beforeUpdate() {
-			console.log('beforeUpdate');
-		},
-		updated() {
-			console.log('updated');
-		},
-		beforeUnmount() {
-			console.log('beforeUnmount');
-		},
-		unmounted() {
-			console.log('unmounted');
-		},
-		activated() {
-			console.log('activated');
-		},
-		deactivated() {
-			console.log('deactivated');
-		},
-		serverPrefetch() {
-			console.log('serverPrefetch');
-		}
-	}
+  onMounted,
+  onBeforeMount,
+  onBeforeUpdate,
+  onUpdated,
+  onBeforeUnmount,
+  onUnmounted,
+  onActivated,
+  onDeactivated,
+  onServerPrefetch,
+  ref,
+} from "vue";
+export default {
+  setup() {
+    const sum = ref(0);
+    onBeforeMount(() => console.log("onBeforeMount"));
+    onMounted(() => console.log("onMounted"));
+    onBeforeUpdate(() => console.log("onBeforeUpdate"));
+    onUpdated(() => console.log("onUpdated"));
+    onBeforeUnmount(() => console.log("onBeforeUnmount"));
+    onUnmounted(() => console.log("onUnmounted"));
+    onActivated(() => console.log("onActivated"));
+    onDeactivated(() => console.log("onDeactivated"));
+    onServerPrefetch(() => console.log("onServerPrefetch"));
+    console.log("setup");
+    return {
+      sum,
+    };
+  },
+  beforeCreate() {
+    console.log("beforeCreate");
+  },
+  created() {
+    console.log("created");
+  },
+  beforeMount() {
+    console.log("beforeMount");
+  },
+  mounted() {
+    console.log("mounted");
+  },
+  beforeUpdate() {
+    console.log("beforeUpdate");
+  },
+  updated() {
+    console.log("updated");
+  },
+  beforeUnmount() {
+    console.log("beforeUnmount");
+  },
+  unmounted() {
+    console.log("unmounted");
+  },
+  activated() {
+    console.log("activated");
+  },
+  deactivated() {
+    console.log("deactivated");
+  },
+  serverPrefetch() {
+    console.log("serverPrefetch");
+  },
+};
 </script>
+
+<style>
+</style>
+
 ```
++ **setup**会在所有选项式Api钩子之前调用，在组合式api中可以再次发送api请求，但是不能操作dom。
++ **beforeCreate**在组件实例初始化完成，props解析之后，data和computed处理之前立即调用。
++ **created** 组件实例处理完所有与状态相关（响应式数据，计算属性，方法，监听属性）的选项后立即调用，此时挂载阶段未开始，$el属性任然不可用。
++ **beforeMount** 组件被挂载前调用，此时响应式状态设置完成，虚拟dom完成，render函数首次执行渲染。ps：服务端渲染时不会被调用。
++ **mounted** 组件被挂载后调用，所有同步组件已经被挂在（不包含异步组件或者Suspense树内的组件），真实dom挂载完成。ps：服务端渲染时候不会调用。
++ **beforeUpdate** 在组件因为一个响应式状态变更而更新其dom之前调用，此时还可以改变状态。ps：服务端渲染时不会被调用。
++ **updated** 在组件因为一个响应式状态变更而更新其dom之后调用。ps：这个钩子在服务端渲染不会被调用，并且不能在里面更改响应式状态。
++ **beforeUnmount** 在组件卸载之前调用，此时组件实例依然可以使用。
++ **unmounted** 所有的子组件都已经被卸载，计算属性，监听器停止，可以在这个函数中清理副作用。ps： 服务端渲染不会被调用。
++ **activated** 使用的KeepAlive缓存的组件被激活时候调用，ps：服务端渲染不会被调用。
++ **deactivated** 使用的KeepAlive缓存的组件被移出时候调用，ps：服务端渲染不会被调用。
++ **serverPrefetch** 组件实例在服务器上被渲染前要完成的衣服函数，如果狗子返回一个Promise，服务端渲染会在渲染该组件前等待该Promise完成。
+### 工具函数
++ isRef 判断某个值是否是ref
+```js
+let num = ref(10);
+console.log(isRef(num)); // true
+let obj = ref({num: 10});
+console.log(isRef(obj)); // true
+```
++ unRef 如果参数是ref则返回.value值，否则返回参数本事
+```js
+let num = ref(10);
+let num2 = 10;
+console.log(unref(num)); // 10
+console.log(unref(num2)); // 10
+```
++ toRef 继续响应式对象上的一个属性，创建一个对应的ref，二者相互关联，一个变化，另一个也变化
+```js
+let people = reactive({ age: 27 });
+let age = toRef(people, 'age');
+age.value += 1;
+console.log(people.age); // 28
+people.age +=1 ;
+console.log(age.value); // 29
+```
++ toRefs 和toRef一样不过是批量
+```js
+let cat = reactive({ name: 'yfc', age: 1 });
+let { name, age: age1 } = toRefs(cat);
+console.log(name.value, age1.value) // yfc 1
+```
++ isProxy 检查一个对象是否由reactive()、readonly()、shallowReactive() 或 shallowReadonly() 创建的代理
+```js
+let num = ref(10);
+let people = reactive({ age: 27 });
+const readOnlyValue = readonly({});
+let shallowReactiveValue = shallowReactive({name: 'yfc', job: {age: 6}});
+let shallowReadonlyValue = shallowReadonly({name: 'yfc', job: {age: 6}});
+
+console.log(isProxy(num)); // false
+console.log(isProxy(obj)); // false
+console.log(isProxy(people)); // true
+console.log(isProxy(readOnlyValue)); // true
+console.log(isProxy(shallowReactiveValue)); // true
+console.log(isProxy(shallowReadonlyValue)); // true
+```
++ isReactive 检查一个对象是否是由reactive() shallowReactive() 创建的代理
+注意ref传入对象底层还是根据reactive创建的代理，所以ref创建对象的.value传入isReactive返回依然是true
+```js
+let people = reactive({ age: 27 });
+let obj = ref({num: 10});
+let shallowReactiveValue = shallowReactive({name: 'yfc', job: {age: 6}});
+console.log(isReactive(people));  // true
+console.log(isReactive(shallowReactiveValue)); // true
+console.log(isReactive(obj.value)); // true
+console.log(isReactive(obj)); // false
+```
++ isReadonly 检查传入的值是否是只读对象，只读对象可以更改，但是无法对对象直接赋值
+```js
+const readOnlyValue = readonly({});
+let shallowReadonlyValue = shallowReadonly({name: 'yfc', job: {age: 6}});
+console.log(isReadonly(readOnlyValue)); // true
+console.log(isReadonly(shallowReadonlyValue)); // true
+```
++ shallowRef只会对浅层起作用，只会对.value的更改起作用而不会响应对.value.的值
+```js
+let shallowRefValue = shallowRef({ name: 'yfc' });
+
+shallowRefValue.value.name = 'hl'; // 不会触发响应式
+shallowRefValue.value = { name: 'hl'}; // 会触发响应式
+```
++ triggerRef 对一个浅层副作用的深层修改时候，强制触发响应
+```js
+let shallowRefValue = shallowRef({ name: 'yfc' });
+
+watchEffect(() => {
+  console.log(shallowRefValue.value.name)
+})
+
+shallowRefValue.value.name = 'hl'; // 不会触发响应式
+triggerRef(shallowRefValue); // 触发响应式
+```
++ shallowReactive reactive的浅层次形式
+```js
+let shallowReactiveValue = shallowReactive({name: 'yfc', job: {age: 6}});
+shallowReactiveValue.name = 'hl'; // 响应
+shallowReactiveValue.job.age++; // 不响应
+```
++ shallowReadonly readonly的浅层次形式
+```js
+let shallowReadonlyValue = shallowReadonly({name: 'yfc', job: {age: 6}});
+shallowReadonlyValue.value = 'hl'; // 无用且警告
+shallowReadonlyValue.job.age++; // 有用
+```
++ toRaw 返回由 reactive()、readonly()、shallowReactive() 或者 shallowReadonly() 创建的代理对应的原始对象。
+``` js
+let dog = reactive({ age: 2 });
+let dogRef = ref({ age: 2 })
+
+watchEffect(() => {
+  console.log(dog);
+})
+let dogRow = toRaw(dog);
+dogRow.age++; // 不响应 但是dog内部的数据已被更改
+
+let dogRefRow = toRaw(dogRef.value);
+dogRefRow.age++; // 不响应 但是dogRef.value内部的数据已被更改
+watchEffect(() => {
+  console.log(dogRef);
+})
+```
+### setup 作为属性
+在script标签上添加setup属性，里面的代码会被编译成setup（）函数的内容。带有setup标签的script中的代码每次实例被创建都会执行。
++ 声明的顶层函数，变量，import导入的内容都能在模板中直接使用
++ 使用props
++ 使用emits
++ 限制声明的绑定
++ 使用slots
++ 使用attrs
++ 注意顶层如果使用await 会被编译成setup，只能与Suspense内置组件组合使用<br>
+**子组件**
+```js
+<template>
+  <p>组件传值: {{ num }}</p>
+  <button @click="callback">调用父方法</button>
+  <p>子组件自己的值: {{ age }}</p>
+</template>
+
+<script setup>
+import { onMounted, ref, useAttrs, useSlots } from "vue";
+
+let age = ref(27);
+
+const props = defineProps({
+  num: {
+    type: Number,
+    default: 0,
+  },
+});
+
+const emit = defineEmits(["fun"]);
+
+const callback = () => {
+  emit("fun", 123);
+};
+
+defineExpose({ age });
+
+const attr = useAttrs();
+const slots = useSlots();
+onMounted(() => {
+  console.log(attr);
+  console.log(slots);
+});
+</script>
+
+<style>
+</style>
+```
+**父组件**
+```js
+<template>
+  <ScriptSetup :num="num" @fun="fun" ref="son" cao="cao">
+  <template v-slot>
+    <div>slot</div>
+  </template>
+  </ScriptSetup>
+</template>
+
+<script setup>
+import { onMounted, ref } from 'vue';
+import ScriptSetup from './index.vue';
+let num = ref(0)
+const son = ref(null)
+const fun = (v) => {
+  num.value++
+}
+onMounted(() => {
+  console.log(son.value)
+})
+
+</script>
+
+<style>
+</style>
+```
+### 全局变量
+```js
+const app = Vue.createApp({})
+app.config.globalProperties.$http = () => {}
+
+import { getCurrentInstance, onMounted } from "vue";
+export default {
+  setup( ) {
+    const { ctx } = getCurrentInstance(); //获取上下文实例，ctx=vue2的this
+    onMounted(() => {
+      console.log(ctx, "ctx");
+      ctx.http();
+    });
+  },
+};
+```
+
+
+
+
+
+
+
+
+
+

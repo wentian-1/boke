@@ -6,7 +6,7 @@ categories:
  - 重学js
 tags:
  - JavaScript
-publish: false
+publish: true
 ---
 es变量类型是松散的，每个变量可以保存任意类型的值。在es中声明变量有三种方式**var、let、const**
 其中var在所有版本中都能用，let、const只能用在es6或者更晚的版本中。

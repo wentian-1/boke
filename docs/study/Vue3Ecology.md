@@ -465,3 +465,76 @@ const stop = watchEffect(() => {
 ```
 watch继承watchEffect，所以wacth支持的参数watchEffect同样支持。默认开启了immediate。<br>
 用到谁就监听谁，监听到点，比如上面没用到job里面的属性值，上文中改变工龄和薪资则不会触发。
+## 生命周期
+由于vue3使用了组合式Api，也主持配置项形式的写法，所以有两种方式，组合式和配置式
+```js
+<template>
+	<button @click="sum++">{{sum}}</button>
+</template>
+
+<script>
+import {
+		onMounted,
+		onBeforeMount,
+		onBeforeUpdate,
+		onUpdated,
+		onBeforeUnmount,
+		onUnmounted,
+		onActivated,
+		onDeactivated,
+		onServerPrefetch,
+		ref
+	} from 'vue';
+	export default {
+		setup() {
+			const sum = ref(0)
+			onBeforeMount(() => console.log('onBeforeMount'));
+			onMounted(() => console.log('onMounted'));
+			onBeforeUpdate(() => console.log('onBeforeUpdate'));
+			onUpdated(() => console.log('onUpdated'));
+			onBeforeUnmount(() => console.log('onBeforeUnmount'));
+			onUnmounted(() => console.log('onUnmounted'));
+			onActivated(() => console.log('onActivated'));
+			onDeactivated(() => console.log('onDeactivated'));
+			onServerPrefetch(() => console.log('onServerPrefetch'));
+			console.log('setup');
+			return {
+				sum
+			}
+		},
+		beforeCreate() {
+			console.log('beforeCreate');
+		},
+		created() {
+			console.log('created');
+		},
+		beforeMount() {
+			console.log('beforeMount');
+		},
+		mounted() {
+			console.log('mounted');
+		},
+		beforeUpdate() {
+			console.log('beforeUpdate');
+		},
+		updated() {
+			console.log('updated');
+		},
+		beforeUnmount() {
+			console.log('beforeUnmount');
+		},
+		unmounted() {
+			console.log('unmounted');
+		},
+		activated() {
+			console.log('activated');
+		},
+		deactivated() {
+			console.log('deactivated');
+		},
+		serverPrefetch() {
+			console.log('serverPrefetch');
+		}
+	}
+</script>
+```

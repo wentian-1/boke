@@ -107,8 +107,112 @@ const result2 = test1`${num1} + ${num2} = ${num1 + num2}`;
 console.log(result2);
 ```
 在标签函数中可以自定义行为
-###
-
+### 实例属性
++ string只有一个**length**的静态属性
+```js
+const str = 'hello world';
+console.log(str.length);
+```
+### 实例方法
+所有实例方法均以hello word为例子
+```js
+const str = 'hello world';
+```
++ at <br>
+at 方法接受一个整数值，数值可正可负，正值从第一个字符开始为0，负值是从最后一个开始，返回指定偏移量的字符。
+```js
+console.log(str.at()); // h
+console.log(str.at(1)); // e
+console.log(str.at(1.6)); // e
+console.log(str.at(-1.6)) // d
+console.log(str.at(-1)); // d
+console.log(str.at(100)); // undefined
+console.log(str.at(true)); // h
+console.log(str.at(false)); // h
+```
+::: warning
++ 如果不传值，则默认0
++ 如果接受的是负数那么最后一个则为-1，一次类推
++ 如果接受的是一个小数那么自动向下取整后查
++ 如果是数字以外的数值那么默认去第0个
++ 如果传入的数值大于了字符串的长度，那么返回undefined
+:::
++ charAt <br>
+返回指定index处的字符
+```js
+console.log(str.charAt()); // h
+console.log(str.charAt('s')); // h
+console.log(str.charAt(1)); // e
+console.log(str.charAt(1.6)); // e
+console.log(str.charAt(-1));  // 
+console.log(str.charAt(100)); // 
+console.log(str.charAt(true)); // e
+console.log(str.charAt(false)); // h
+console.log(str.charAt({})); // h
+```
+::: warning
++ 如果不传值，则默认0
++ 如果值大于等于数组长度或者负数，则返回空字符串
++ 如果值是小数，向下取整后查询
++ 如果值是布尔值true是1，false是0
++ 如果是其余数值默认0
+:::
++ chatCodeAt <br>
+返回指定位置的UTF-16的码元值，0到65535的数字
+```js
+console.log(str.charCodeAt()); // 104 ---h
+console.log(str.charCodeAt(0)); // 104
+console.log(str.charCodeAt('s')); // 104
+console.log(str.charCodeAt(-1));  // NaN
+console.log(str.charCodeAt(100)); // NaN
+console.log(str.charCodeAt(true)); // 101
+console.log(str.charCodeAt(false)); // 104
+console.log(str.charCodeAt({})); // 104
+```
+::: warning
++ 如果不传值，则默认0
++ 如果值大于等于数组长度或者负数，则返回NaN
++ 如果值是小数，向下取整后查询
++ 如果值是布尔值true是1，false是0
++ 如果是其余数值默认0
+:::
++ codePointAt <br>
+返回一个Unicode编码点值的非负整数
+```js
+console.log(str.codePointAt()); // 104 ---h
+console.log(str.codePointAt(0)); // 104
+console.log(str.codePointAt('s')); // 104
+console.log(str.codePointAt(-1));  // undefined
+console.log(str.codePointAt(100)); // undefined
+console.log(str.codePointAt(true)); // 101
+console.log(str.codePointAt(false)); // 104
+console.log(str.codePointAt({})); // 104
+```
+::: warning
++ 如果不传值，则默认0
++ 如果值大于等于数组长度或者负数，则返回undefined
++ 如果值是小数，向下取整后查询
++ 如果值是布尔值true是1，false是0
++ 如果是其余数值默认0
++ 大部分情况下codePointAt和charCodeAt返回的是相等的。js中字符以 UTF-16 的格式储存，每个字符固定为2个字节。对于那些需要4个字节储存的字符（Unicode 码点大于0xFFFF的字符），JavaScript 会认为它们是两个字符，这个时候codePointAt()方法，能够正确处理 4 个字节储存的字符，返回一个字符的码点。
+:::
++ concat <br>
+将一个或者多个字符串连接起来，返回一个新的字符串，并不影响原字符串。如果参数不是字符串类型，会在连接之前转换成字符串。
+```js
+console.log('hello'.concat('world')); // helloworld
+console.log('hello'.concat('world', '!')); // helloworld!
+console.log('hello'.concat(1, 2, 3)); // hello123
+console.log('hello'.concat({})); // hello[object Object]
+console.log('hello'.concat([])); // hello
+console.log('hello'.concat([1])); // hello1
+console.log('hello'.concat(true)); // hellotrue
+console.log('hello'.concat(null)); // hellonull
+console.log('hello'.concat(undefined)); // helloundefined
+console.log('hello'.concat(NaN)); // helloNaN
+```
+::: warning
++ 强烈建议使用+ += 代替concat
+:::
 ## number
 number是JavaScript中唯一的数值类型，JavaScript中的数字类型是基于IEEE 754标准来实现的浮点数，并且是双精度格式（64位二进制）。
 ### 创建方式

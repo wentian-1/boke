@@ -494,4 +494,294 @@ let { params } = toRefs(useRoute());
 + 点击layoutAbout
 <img :src="$withBase('/imgs/vuerouter/layout3.jpg')" alt="layout">
 
+### 编程式导航、重定向、别名
+使用router实例的方法，通过编写代码来实现的导航方式。
++ 修改user/index.vue
+```js
+<template>
+  <h1>User</h1>
+  <p>
+    查询参数: {{ query }}
+  </p>
+</template>
 
+<script setup>
+import { toRefs } from 'vue';
+import { useRoute } from 'vue-router';
+let { query } = toRefs(useRoute())
+</script>
+```
++ 修改about/index.vue
+```js
+<template>
+  <h1>About</h1>
+</template>
+
+<script setup>
+</script>
+```
++ 修改router/index.js
+```js
+{
+	path: '/', component: Home,
+},
+{
+	path: '/about/:id*', component: About, name: 'About', alias: ['/about1/:id*', '/about1']
+},
+{
+	path: '/user/:id*', component: User, name: 'User', alias: '/user1'
+},
+{
+	path: '/home/:id',
+	redirect: to => {
+		return { name: 'About', params: { id: to.params.id } }
+	},
+},
+{
+	path: '/index',
+	redirect: '/user'
+}
+```
++ 修改App.vue
+```js
+<template>
+  <button @click="strFun">字符串</button>
+  <button @click="objFun">对象</button>
+  <button @click="hasQueryFun">查询参数</button>
+  <button @click="hasHashFun">带hash</button>
+  <button @click="nameFun">命名式</button>
+  <button @click="nameFunParamsArr">命名式 + 数组</button>
+  <button @click="nameFunQuery">命名式 + 查询参数</button>
+  <button @click="replaceStrFun">字符串替换replace</button>
+  <button @click="replaceObjFun">对象替换replace</button>
+  <button @click="replaceNameObjFun">命名式对象替换replace</button>
+  <button @click="()=> router.go(-1)">后退</button>
+  <button @click="()=> router.go(1)">前进</button>
+  <button @click="redirectFun">重定向</button>
+  <button @click="redirectNameFun">命名式重定向</button>
+  <button @click="aliasFun">单个别名</button>
+  <button @click="aliasArrFun">多个别名</button>
+  <router-view />
+</template>
+
+<script setup>
+import { useRouter } from "vue-router";
+const router = useRouter();
+const strFun = () => {
+  router.push("/about");
+};
+
+const objFun = () => {
+  router.push({ path: "/user" });
+};
+
+const hasQueryFun = () => {
+  router.push({ path: "/user", query: { id: 1 } });
+};
+
+const hasHashFun = () => {
+  router.push({ path: "/user", query: { id: 1 }, hash: "#ddd" });
+};
+
+const nameFun = () => {
+  router.push({ name: "About", params: { id: 1 } });
+};
+
+const nameFunParamsArr = () => {
+  router.push({ name: "About", params: { id: [1, 2, 3] } });
+};
+
+const nameFunQuery = () => {
+  router.push({
+    name: "About",
+    query: { id: 1 },
+    hash: "#ddd",
+    params: { id: [1, 2, 3] },
+  });
+};
+
+const replaceObjFun = () => {
+  router.push({ path: "/user", replace: true });
+};
+
+const replaceStrFun = () => {
+  router.replace("/about");
+};
+
+const replaceNameObjFun = () => {
+  router.push({ name: "User", replace: true });
+};
+
+const redirectFun = () => {
+  router.push({ path: `/index` });
+}
+
+const redirectRoutesFun = () => {
+  router.push({ path: `/home/100` });
+}
+
+const redirectNameFun = () => {
+  router.push({ path: `/home/100` });
+}
+
+const aliasFun = () => {
+  router.push({ path: "/user1" });
+}
+
+const aliasArrFun = () => {
+  router.push({ path: "/about1" });
+}
+</script>
+```
+::: warning
++ 注意path和params一起出现怎会忽略params
++ 注意对于命名式路由，params定义的参数要和routes配置的参数规则一致
++ 注意params里面属性的属性值可以是一个数组比如`/about/:id*` => `params:{ id: [1, 2, 3]}` => /about/1/2/3
++ 注意别名的路由规则要和path的规则保持一致比如`/about/:id*`的别名不能是`/about/:id` `/about/:aid` `/about/:id+`
+:::
+### 路由组件传参
+一个好的组件需要灵活性和通用性，不局限于在路由中使用，在组件中使用`$route`或者是`useRoute`，会降低复用性，只能在特定的url中使用，不能在其余的url或者一个组件的子组件中使用。vue-router为了应对这种方式，在路由配置信息中添加了`props`参数来将路由信息了或者是自定义对象等信息作为props专递给组件，而不需要调用`$route`或者是`useRoute`。
++ 修改router/index.js
+```js
+{
+	path: '/', component: Layout2,
+	redirect: '/layout/about',
+	children: [
+		{
+			path: 'layout',
+			components: {
+				default: Layout,
+				Header,
+				Side
+			},
+			props: {
+				default: {
+					dname: 'default'
+				},
+				Header: {
+					dname: 'Header'
+				},
+				Side: {
+					dname: 'Side'
+				}
+			},
+			children: [
+				{
+					path: 'about', component: About,
+					props: { id: 100 }
+				}
+			]
+		}
+	]
+},
+{
+	path: '/home/:id+', component: Home,
+	props: true
+},
+{
+	path: '/home2/:id', component: Home, name: 'Home',
+	props: true
+},
+{
+	path: '/about', component: About,
+	props: route => ({ id: route.query.id })
+},
+```
++ 修改 App.vue
+```js
+<router-link to="/">对象模式静态props参数</router-link> <br />
+<router-link :to="{ name: 'Home', params: { id: 1 } }">布尔模式</router-link
+><br />
+<router-link :to="{ path: '/about', query: { id: 3 } }">函数模式</router-link
+><br />
+
+<router-view />
+```
++ 修改Layout/index.vue
+```js
+<template>
+  <router-view />
+</template>
+<script>
+export default {
+  props: ['dname'],
+  setup(props) {
+    console.log(props)
+  }
+}
+</script>
+```
++ 修改Layout/header.vue
+```js
+<template>
+  <h2>Header</h2>
+</template>
+<script>
+export default {
+  props: ['dname'],
+  setup(props) {
+    console.log(props)
+  }
+}
+</script>
+
+```
++ 修改Layout/side.vue
+```js
+<template>
+  <h2>Side</h2>
+</template>
+<script>
+export default {
+  props: ['dname'],
+  setup(props) {
+    console.log(props)
+  }
+}
+</script>
+```
++ 修改Layout/layout.vue
+```js
+<template>
+  <h2>Layout布局组件</h2>
+  <router-view name="Header"/>
+  <router-view name="Side"/>
+  <router-view />
+</template>
+```
++ 修改pages/Home/index.vue
+```js
+<template>
+  <h1>Home</h1>
+</template>
+<script>
+export default {
+  props: ['id'],
+  setup(props) {
+    console.log(props)
+  }
+}
+</script>
+```
++ 修改pages/About/index.vue
+```js
+<template>
+  <h1>About</h1>
+</template>
+
+<script>
+export default {
+  props: ['id'],
+  setup(props) {
+    console.log(props)
+  }
+}
+</script>
+```
+::: warning
++ 组件要定义props接收
++ props 传布尔值时候，会将`/:id`也就是params里面的参数自动带入到组件的props
++ props 传递对象的时候，会将自定义对象，会将自定义的对象带入组件的props
++ props 传递函数的时候需要返回一个对象来注入到组件，函数可以接受参数，为路由的信息
++ 如果是命名式嵌套的话需要逐个定义props
+:::

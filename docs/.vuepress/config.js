@@ -64,62 +64,62 @@ module.exports = {
 					{
 						name: '星星点灯',
 						artist: '郑智化',
-						url: 'https://abc.dtxy.xyz/music/xxddzzh.mp3',
-						cover: 'https://abc.dtxy.xyz/boke/hero.png'
+						url: '/music/xxddzzh.mp3',
+						// cover: 'https://abc.dtxy.xyz/boke/hero.png'
 					},
 					{
 						name: 'Faded纯音乐',
 						artist: 'Alan Walker',
-						url: 'https://abc.dtxy.xyz/music/faded.mp3',
-						cover: 'https://abc.dtxy.xyz/boke/hero.png'
+						url: '/music/faded.mp3',
+						// cover: 'https://abc.dtxy.xyz/boke/hero.png'
 					},
 					{
 						name: '星星点灯',
 						artist: '葛漂亮',
-						url: 'https://abc.dtxy.xyz/music/xxddgpl.mp3',
-						cover: 'https://abc.dtxy.xyz/boke/hero.png'
+						url: '/music/xxddgpl.mp3',
+						// cover: 'https://abc.dtxy.xyz/boke/hero.png'
 					},
 					{
 						name: '黄昏',
 						artist: '周传雄',
-						url: 'https://abc.dtxy.xyz/music/hh.mp3',
-						cover: 'https://abc.dtxy.xyz/boke/hero.png'
+						url: '/music/hh.mp3',
+						// cover: 'https://abc.dtxy.xyz/boke/hero.png'
 					},
 					{
 						name: '卡农（经典钢琴版）',
 						artist: 'dylanf',
-						url: 'https://abc.dtxy.xyz/music/kn.mp3',
-						cover: 'https://abc.dtxy.xyz/boke/hero.png'
+						url: '/music/kn.mp3',
+						// cover: 'https://abc.dtxy.xyz/boke/hero.png'
 					},
 					{
 						name: '七里香',
 						artist: '周杰伦',
-						url: 'https://abc.dtxy.xyz/music/qlx.mp3',
-						cover: 'https://abc.dtxy.xyz/boke/hero.png'
+						url: '/music/qlx.mp3',
+						// cover: 'https://abc.dtxy.xyz/boke/hero.png'
 					},
 					{
 						name: 'Something Just Like This',
 						artist: 'The Chainsmokers、Coldplay',
-						url: 'https://abc.dtxy.xyz/music/sjlt.mp3',
-						cover: 'https://abc.dtxy.xyz/boke/hero.png'
+						url: '/music/sjlt.mp3',
+						// cover: 'https://abc.dtxy.xyz/boke/hero.png'
 					},
 					{
 						name: 'That Girl',
 						artist: 'Olly Murs',
-						url: 'https://abc.dtxy.xyz/music/tg.mp3',
-						cover: 'https://abc.dtxy.xyz/boke/hero.png'
+						url: '/music/tg.mp3',
+						// cover: 'https://abc.dtxy.xyz/boke/hero.png'
 					},
 					{
 						name: 'That is Why (You Go Away)',
 						artist: 'Michael Learns To Rock',
-						url: 'https://abc.dtxy.xyz/music/tw.mp3',
-						cover: 'https://abc.dtxy.xyz/boke/hero.png'
+						url: '/music/tw.mp3',
+						// cover: 'https://abc.dtxy.xyz/boke/hero.png'
 					},
 					{
 						name: 'Until You',
 						artist: 'Shayne Ward',
-						url: 'https://abc.dtxy.xyz/music/uy.mp3',
-						cover: 'https://abc.dtxy.xyz/boke/hero.png'
+						url: '/music/uy.mp3',
+						// cover: 'https://abc.dtxy.xyz/boke/hero.png'
 					},
 				],
 				// 是否默认缩小

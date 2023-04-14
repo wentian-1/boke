@@ -61,24 +61,71 @@ module.exports = {
 			'@vuepress-reco/vuepress-plugin-bgm-player',
 			{
 				audios: [
-					// 网络文件示例
 					{
-						name: '강남역 4번 출구',
-						artist: 'Plastic / Fallin` Dild',
-						url: 'https://assets.smallsunnyfox.com/music/2.mp3',
-						cover: 'https://assets.smallsunnyfox.com/music/2.jpg'
+						name: '星星点灯',
+						artist: '郑智化',
+						url: 'https://abc.dtxy.xyz/music/xxddzzh.mp3',
+						cover: 'https://abc.dtxy.xyz/boke/hero.png'
 					},
 					{
-						name: '用胳膊当枕头',
-						artist: '최낙타',
-						url: 'https://assets.smallsunnyfox.com/music/3.mp3',
-						cover: 'https://assets.smallsunnyfox.com/music/3.jpg'
-					}
+						name: 'Faded纯音乐',
+						artist: 'Alan Walker',
+						url: 'https://abc.dtxy.xyz/music/faded.mp3',
+						cover: 'https://abc.dtxy.xyz/boke/hero.png'
+					},
+					{
+						name: '星星点灯',
+						artist: '葛漂亮',
+						url: 'https://abc.dtxy.xyz/music/xxddgpl.mp3',
+						cover: 'https://abc.dtxy.xyz/boke/hero.png'
+					},
+					{
+						name: '黄昏',
+						artist: '周传雄',
+						url: 'https://abc.dtxy.xyz/music/hh.mp3',
+						cover: 'https://abc.dtxy.xyz/boke/hero.png'
+					},
+					{
+						name: '卡农（经典钢琴版）',
+						artist: 'dylanf',
+						url: 'https://abc.dtxy.xyz/music/kn.mp3',
+						cover: 'https://abc.dtxy.xyz/boke/hero.png'
+					},
+					{
+						name: '七里香',
+						artist: '周杰伦',
+						url: 'https://abc.dtxy.xyz/music/qlx.mp3',
+						cover: 'https://abc.dtxy.xyz/boke/hero.png'
+					},
+					{
+						name: 'Something Just Like This',
+						artist: 'The Chainsmokers、Coldplay',
+						url: 'https://abc.dtxy.xyz/music/sjlt.mp3',
+						cover: 'https://abc.dtxy.xyz/boke/hero.png'
+					},
+					{
+						name: 'That Girl',
+						artist: 'Olly Murs',
+						url: 'https://abc.dtxy.xyz/music/tg.mp3',
+						cover: 'https://abc.dtxy.xyz/boke/hero.png'
+					},
+					{
+						name: 'That is Why (You Go Away)',
+						artist: 'Michael Learns To Rock',
+						url: 'https://abc.dtxy.xyz/music/tw.mp3',
+						cover: 'https://abc.dtxy.xyz/boke/hero.png'
+					},
+					{
+						name: 'Until You',
+						artist: 'Shayne Ward',
+						url: 'https://abc.dtxy.xyz/music/uy.mp3',
+						cover: 'https://abc.dtxy.xyz/boke/hero.png'
+					},
 				],
 				// 是否默认缩小
 				autoShrink: true,
 				// 缩小时缩为哪种模式
-				shrinkMode: 'mini',
+				shrinkMode: 'float',
 				// 悬浮窗样式
 				floatStyle: {
 					bottom: '200px',

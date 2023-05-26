@@ -8,7 +8,7 @@ tags:
  - JavaScript
 publish: true
 ---
-es有六种基础数据类型**String、Number、Boolean、Undefined、Null、Symbol(新增)**和一种叫Object的复杂类型。Object是一种无序的键值对集合。
+es有六种基础数据类型**String、Number、Boolean、Undefined、Null、Symbol**和一种叫Object的复杂类型。Object是一种无序的键值对集合。
 ## String
 string类型表示0或多个的16位Unicode字符序列。
 ### 创建方式

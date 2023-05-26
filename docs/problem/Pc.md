@@ -29,3 +29,42 @@ const tabsRef = toRefs(state).tabs
 tabsRef.value = ['x', 'y', 'z']
 ```
 通过使用toRefs，您可以获得对tab数组的响应性引用，对数组的更改将被跟踪并触发对UI的更新。请注意，value属性必须用于访问实际数组，因为toRefs返回一个以属性名称为键的对象，并且实际值存储在每个键的value属性下。
+## 解决项目配置完别名后比如`@middlewares/exception`在vscode中不能使用command+鼠标左键找到源码问题
+**例子package.json**
+```json
+	"_moduleAliases": {
+		"@root": ".",
+		"@controller": "controller",
+		"@config": "config",
+		"@middlewares": "middlewares",
+		"@services": "services",
+		"@models": "models",
+		"@routers": "routers",
+		"@sequelize": "sequelize",
+		"@utils": "utils"
+	},
+```
+**在根目录新建jsconfig.json**
+```json
+{ 
+  "compilerOptions": { 
+    "baseUrl": ".", 
+    "paths": { 
+      "@middlewares/*": ["middlewares/*"], 
+      "@utils/*": ["utils/*"],
+      
+    }, 
+    "experimentalDecorators": true 
+  }, 
+  "resolveExtensions": [".js", ".vue", ".ts"], 
+  "exclude": [ 
+    "node_modules", 
+    "**/node_modules/*" 
+  ] 
+}
+```
+**文件中引用的**
+```js
+const { error } = require('@utils/log');
+const exception = require('@middlewares/exception');
+```

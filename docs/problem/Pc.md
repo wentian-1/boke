@@ -68,3 +68,46 @@ tabsRef.value = ['x', 'y', 'z']
 const { error } = require('@utils/log');
 const exception = require('@middlewares/exception');
 ```
+
+## vuex或者redux，使用vite或者webpack在分模块组合module时的不同
+以redux为例
+目录结构
+```
+├── index.js
+├── modules
+│   ├── permission.js
+│   ├── user.js
+│   └── test.js
+**vite方式**
+```js
+<!-- index.js -->
+import { configureStore } from "@reduxjs/toolkit";
+
+const files = import.meta.globEager("./modules/*.js");
+const reducer = {};
+
+Object.keys(files).forEach((key) => {
+	reducer[key.replace(/(\.\/|\.js)/g, "").replace("modules/", "")] =
+		files[key].default;
+});
+
+export default configureStore({
+	reducer,
+});
+
+```
+**webpack方式**
+```js
+// index.js
+import { configureStore } from "@reduxjs/toolkit";
+import { createRequire } from "module"; 
+const files = require.context("./modules", false, /\.js$/);
+const reducer = {};
+files.keys().forEach((key) => {
+	reducer[key.replace(/(\.\/|\.js)/g, "").replace("modules/", "")] =
+		files(key).default;
+});
+export default configureStore({
+	reducer,
+})
+```

@@ -56,6 +56,7 @@ module.exports = {
 		anchor: true
 	},
 	plugins: [
+		// ["vuepress-plugin-nuggets-style-copy"],
 		// 音乐播放器
 		[
 			'@vuepress-reco/vuepress-plugin-bgm-player',
@@ -169,6 +170,6 @@ module.exports = {
 			{
 				hostname: 'https://ts.yayujs.com'
 			}
-		]
+		],
 	]
 }
